@@ -22,7 +22,7 @@ class TestFitnessTrackerApp(unittest.TestCase):
             "Error", "Please enter both workout and duration."
         )
 
-    '''@patch("tkinter.messagebox.showerror")
+    @patch("tkinter.messagebox.showerror")
     def test_add_workout_invalid_duration(self, mock_showerror):
         """Tests that an error is shown if the duration is not a valid integer."""
         self.app.workout_entry.insert(0, "Pushups")
@@ -121,7 +121,7 @@ class TestFitnessTrackerApp(unittest.TestCase):
         # Act: Call the method to be tested
         self.app.view_workouts()
         # Assert: Verify the message box was shown with the correctly formatted string
-        mock_showinfo.assert_called_with("Workouts", expected_text)'''
+        mock_showinfo.assert_called_with("Workouts", expected_text)
 
 
 if __name__ == "__main__":
