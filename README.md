@@ -16,4 +16,4 @@
 Note: Commit the code changes to the feature branch and then merge the code to master/main branch.
 •	Once the testing is completed, commit the changes to the remote repository starting with staging the files from the local repository by “git add .” GIT command.
 •	Commit the changes to the local repository with the command git commit -m "commit message".
-•	Once all the tests are passed and if there are no issues between the commits, you can proceed to push the code to the remote repository but running git push origin <feature-branch>
+•	Once all the tests are passed and if there are no issues between the commits, you can proceed to push the code to the remote repository but running git push origin <feature_branch>
