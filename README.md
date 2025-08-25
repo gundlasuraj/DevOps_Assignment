@@ -1,7 +1,7 @@
 # DevOps_Assignment
 •	Initialize a local repository and start writing the code and establish its remote counterpart on GitHub
 •	Install pytest in your local machine using pip (Pip Installs Packages) which is the package manager for Python.
-Command: pip install pytest
+        Command: pip install pytest
 •	Once the code is developed, build Unit Tests to check code quality, reliability of the written code with multiple test cases to check successful, negative, error handling, boundary scenarios.
 •	Execute the test cases
 		Command: pytest <test_file>
