@@ -1,9 +1,16 @@
-    # Use an official lightweight Python image.
+# Use an official lightweight Python image.
 # python:3.9-slim is a good choice for a balance of size and compatibility.
 FROM python:3.9-slim
 
 # Set the working directory in the container
 WORKDIR /app
+
+# Install system dependencies for tkinter
+# python3-tk provides the necessary Tcl/Tk libraries for the Python tkinter module.
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        python3-tk && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy the requirements file first to leverage Docker's layer caching.
 # This way, dependencies are only re-installed if requirements.txt changes.
