@@ -1,19 +1,73 @@
-# DevOps_Assignment
-•	Initialize a local repository and start writing the code and establish its remote counterpart on GitHub
-•	Install pytest in your local machine using pip (Pip Installs Packages) which is the package manager for Python.
-        Command: pip install pytest
-•	Once the code is developed, build Unit Tests to check code quality, reliability of the written code with multiple test cases to check successful, negative, error handling, boundary scenarios.
-•	Execute the test cases
-		Command: pytest <test_file>
-•	Once the test cases are passed, automate the testing to ensure that code changes are thoroughly validated before proceeding to subsequent stages of the pipeline.
-•	Local Test automation can be achieved through GitHub hooks. These are scripts that Git automatically runs before or after events like commit and push.
-•	We can use pre-commit hook to run the test which prevents us from ever committing code that breaks the test suite.
-•	To set it up:
-    1.	Install the framework: pip install pre-commit
-    2.	Create a configuration file named “.pre-commit-config.yaml” in your project root directory.
-    3.	Set up the git hooks: pre-commit install
-•	Now, every time we run git commit, the tests (and any other configured checks) will run automatically. If the tests fail, the commit is aborted.
-Note: Commit the code changes to the feature branch and then merge the code to master/main branch.
-•	Once the testing is completed, commit the changes to the remote repository starting with staging the files from the local repository by “git add .” GIT command.
-•	Commit the changes to the local repository with the command git commit -m "commit message".
-•	Once all the tests are passed and if there are no issues between the commits, you can proceed to push the code to the remote repository but running git push origin <feature_branch>
+# ACEest Fitness Tracker
+
+A simple desktop application for logging workouts, built with Python and Tkinter. This project is configured with a full suite of automated testing, and a CI/CD pipeline using Docker and GitHub Actions.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.9+
+- Git
+- Docker
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd Dev
+
+2.  **Install dependencies:**
+    This project uses `pip` for package management. The required packages are listed in `requirements.txt`.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## 🏃‍♂️ Running the Application
+
+To run the fitness tracker application directly on your machine:
+```bash
+python ACEest_Fitness.py
+```
+
+### Local Testing
+
+To run the entire `pytest` suite manually:
+```bash
+pytest
+```
+
+### Automated Local Checks (pre-commit)
+
+The repository is configured with `pre-commit` hooks to automatically format code, check for issues, and run tests before each commit. To enable these hooks, run this command once after cloning:
+```bash
+pre-commit install
+```
+
+## 🐳 Containerization
+
+This project includes a `Dockerfile` to create a portable and consistent environment for the application.
+
+### Building the Docker Image
+
+To build the image locally, run the following command from the project root:
+```bash
+docker build . -t my-app
+```
+
+### To test the Application functionality within the built Docker image
+
+To run the application inside a Docker container and test its functionality, run the following command.
+```bash
+docker run --rm my-app pytest
+```
+
+## 🔄 CI/CD Pipeline
+
+This repository is configured with a fully automated CI/CD pipeline using GitHub Actions that validates every change.
+
+1.  **Trigger**: The pipeline runs on every `push` or `pull_request` to the `main` branch.
+2.  **Build**: A Docker image is built from the `Dockerfile`, packaging the application and all its dependencies.
+3.  **Test**: The `pytest` suite is executed *inside* the newly built Docker container to verify the application's functionality.
+
+This process ensures that all code merged into the main branch is automatically built, tested, and Containerized.
